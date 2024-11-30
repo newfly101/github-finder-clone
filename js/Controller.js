@@ -8,17 +8,22 @@ export default class Controller {
         this.userNameSearch = userNameSearch;
 
         this.userInputSubmit();
+        this.userNameReset();
     }
 
     userInputSubmit() {
-        // this.userNameSearch.on("@submit", event => this.searchUserName(event));
         this.userNameSearch.on("@submit", event => this.searchName(event.detail.value));
-    }
-
-    searchUserName(event) {
-        console.log(tag, event, event.detail);
     }
     searchName(userName) {
         console.log(tag, "UserName : ", userName);
+    }
+    userNameReset() {
+        this.userNameSearch.on("@reset", event => this.checkUserName(event));
+    }
+
+    checkUserName(event) {
+        if (event.detail.value.length === 0) {
+            console.log(tag, "User name erased");
+        }
     }
 }
