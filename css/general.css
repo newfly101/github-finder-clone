@@ -1,7 +1,11 @@
 :root {
     --header-background-color : #4582ec;
-    --header-font-color: #ffffff;
+    --if-background-true-font-color: #ffffff;
     --footer-background-color : #f4f4f4;
+    --button1-background-color : #4582ec;
+    --button2-background-color : #adb5bd;
+    --button3-background-color : #01b875;
+    --button4-background-color : #19a1b8;
 }
 
 body {
@@ -10,7 +14,7 @@ body {
 
 .header {
     background-color: var(--header-background-color);
-    color: var(--header-font-color);
+    color: var(--if-background-true-font-color);
     display: flex;
     align-items: center;
     padding: 0 1rem 0.3rem 1rem;
@@ -31,4 +35,29 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+/* button background color & padding setting */
+.viewer-button-container {
+    display: block;
+    flex-direction: row;
+    align-content: space-between;
+}
+.viewer-button-container > button {
+    color: var(--if-background-true-font-color);
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 0.3rem;
+}
+.viewer-button-container > button:nth-child(1) {
+    background-color: var(--button1-background-color);
+}
+.viewer-button-container > button:nth-child(2) {
+    background-color: var(--button2-background-color);
+}
+.viewer-button-container > button:nth-child(3) {
+    background-color: var(--button3-background-color);
+}
+.viewer-button-container > button:nth-child(4) {
+    background-color: var(--button4-background-color);
 }
