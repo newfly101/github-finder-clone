@@ -11,10 +11,14 @@ export default class Controller {
     }
 
     userInputSubmit() {
-        this.userNameSearch.on("@submit", event => this.searchUserName(event));
+        // this.userNameSearch.on("@submit", event => this.searchUserName(event));
+        this.userNameSearch.on("@submit", event => this.searchName(event.detail.value));
     }
 
     searchUserName(event) {
         console.log(tag, event, event.detail);
+    }
+    searchName(userName) {
+        console.log(tag, "UserName : ", userName);
     }
 }
