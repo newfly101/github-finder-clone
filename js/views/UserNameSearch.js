@@ -22,10 +22,17 @@ export default class userNameSearch extends View{
     bindEvent() {
         // input에서 event 'keyup' event 발생 시 this.handleKeyUp() function 실행
         on(this.userNameElement, "keyup", () => this.handleKeyUp());
+        on(this.element, "submit", (event) => this.handleSubmit(event));
     }
     handleKeyUp() {
-        console.log(tag, " input: ", this.userNameElement.value);
+        // console.log(tag, " input: ", this.userNameElement.value);
         const {value} = this.userNameElement;
         this.showResetButton(value.length > 0);
+    }
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log(tag, "handleSubmit");
+        const {value} = this.userNameElement;
+        this.emit("@submit", {value});
     }
 }
