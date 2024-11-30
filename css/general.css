@@ -12,6 +12,10 @@
 body {
     margin: 0 10px;
 }
+button:focus,
+button:hover {
+    cursor: pointer;
+}
 
 .header {
     background-color: var(--header-background-color);
@@ -53,14 +57,32 @@ main > section {
     font-size: 1.2rem;
     color: #606060;
 }
-.section1 > input {
+.search-user-form {
+    position: relative;
+}
+.search-user-form > input {
+    width: 100%;
+    box-sizing: border-box;
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
     border: 2px solid var(--footer-background-color);
     border-radius: 0.2rem;
 }
-.section1 > input:focus {
+.search-user-form > input:focus {
     outline: 1px solid var(--header-background-color);
+}
+.search-user-form > button {
+    border-radius: 50%;
+    background-color: #ccc;
+    color: white;
+    border: none;
+    padding: 2px 5px;
+    position: absolute;
+    top: 12px;
+    right: 10px;
+}
+.search-user-form > button::before {
+    content: 'X'
 }
 
 /* userProfile img & padding setting */
