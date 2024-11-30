@@ -1,15 +1,22 @@
 import View from "./Views.js";
 import {on, qs} from "../helpers.js";
 
+const tag = '[userNameSearch]';
+
 export default class userNameSearch extends View{
     constructor() {
-        super(qs(".section1"));
+        super(qs(".search-user-form"));
         console.log("this", this);
 
         this.userNameElement = qs("[type=text]", this.element);
-        console.log("userName", this.userNameElement);
+        this.resetNameElement = qs(".reset-btn", this.element);
 
+        this.showResetButton(false);
         this.bindEvent();
+    }
+
+    showResetButton(visible = true) {
+        this.resetNameElement.style.display = visible ? "block" : "none";
     }
 
     bindEvent() {
@@ -17,6 +24,8 @@ export default class userNameSearch extends View{
         on(this.userNameElement, "keyup", () => this.handleKeyUp());
     }
     handleKeyUp() {
-        console.log("HANDLER : keyup");
+        console.log(tag, " input: ", this.userNameElement.value);
+        const {value} = this.userNameElement;
+        this.showResetButton(value.length > 0);
     }
 }
