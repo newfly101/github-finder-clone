@@ -36,6 +36,37 @@ body {
     align-items: center;
     flex-direction: column;
 }
+
+/* userProfile img & padding setting */
+.section2 {
+    display: flex;
+    border: 2px solid var(--footer-background-color);
+}
+.viewer-userProfile-img-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 15rem;
+    margin: 1rem;
+}
+.viewer-userProfile-img-container > img {
+    width: 12rem;
+    height: 12rem;
+}
+.viewer-userProfile-img-container > button {
+    background-color: var(--button1-background-color);
+    color: var(--if-background-true-font-color);
+    border: none;
+    width: 12rem;
+    height: 2rem;
+    margin: 1rem 0;
+    border-radius: 0.6rem;
+}
+/* userProfile detail division add */
+.viewer-userProfile-detail-container {
+    margin: 1rem;
+}
 /* userProfile border color & padding setting */
 .viewer-userProfile-container {
      margin: 1rem auto;
