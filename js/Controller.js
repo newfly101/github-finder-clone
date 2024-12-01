@@ -2,7 +2,7 @@ const tag = '[CONTROLLER]';
 
 export default class Controller {
     constructor(store, {userNameSearch, userDetails}) {
-        console.log(tag);
+        // console.log(tag);
 
         this.store = store;
         this.userNameSearch = userNameSearch;

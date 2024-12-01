@@ -7,7 +7,7 @@ const tag = '[MAIN]';
 document.addEventListener('DOMContentLoaded', main);
 
 function main() {
-    console.log(tag);
+    // console.log(tag);
     const store = new Store();
 
     const views = {

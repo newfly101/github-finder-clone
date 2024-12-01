@@ -6,7 +6,7 @@ const tag = '[Section_1]';
 export default class userNameSearch extends View{
     constructor() {
         super(qs(".search-user-form"));
-        console.log("this", this);
+        // console.log("this", this);
 
         this.userNameElement = qs("[type=text]", this.element);
         this.resetNameElement = qs(".reset-btn", this.element);

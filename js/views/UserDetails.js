@@ -6,7 +6,7 @@ const tag = '[Section_2]';
 export default class userDetails extends View {
     constructor() {
         super(qs('.section2'));
-        console.log("this", this);
+        // console.log("this", this);
 
         this.userProfile = {
             profileImg: "assets/userProfile.svg",

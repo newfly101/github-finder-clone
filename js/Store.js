@@ -1,4 +1,4 @@
-import {fetchSearch, fetchServerTest} from "./repository.js";
+import {fetchSearch, fetchSearchDetail, fetchServerTest} from "./repository.js";
 
 const tag = '[STORE]';
 export default class Store {
@@ -31,15 +31,25 @@ export default class Store {
         if (userName.trim().length > 0) {
             try {
                 const data = await fetchSearch(userName);
-                console.log(tag, 'getSearchUser:', data);
+                console.log(tag, 'getSearchUserList:', data);
                 this.findUser = data.items.find(user => user.login === userName);
                 console.log(tag,"findUser: ",this.findUser); // object로 담음
             } catch (error) {
-                console.error(tag, 'Error in test:', error);
+                console.error(tag, 'Error in getSearchUser:', error);
             }
         } else {
             console.log("검색할 사용자의 이름을 입력해주세요.");
             this.init();
+        }
+    }
+    async getSearchUserDetail(userName) {
+        console.log("detail request");
+        try {
+            const data = await fetchSearchDetail(userName);
+            console.log(`getSearchUserDetail : ${data.json()}`);
+            return data.json();
+        } catch (error) {
+            console.error(tag, 'Error in getSearchUserDetail:', error);
         }
     }
 }
