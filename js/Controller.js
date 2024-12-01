@@ -16,8 +16,8 @@ export default class Controller {
     }
     searchName(userName) {
         console.log(tag, "UserName : ", userName);
-        this.store.search(userName);
-
+        this.store.getSearchUser(userName);
+        // this.store.test();
     }
     userNameReset() {
         this.userNameSearch.on("@reset", event => this.checkUserName(event));
