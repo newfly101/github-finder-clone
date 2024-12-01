@@ -15,12 +15,11 @@ export default class Controller {
     userInputSubmit() {
         this.userNameSearch.on("@submit", event => this.searchName(event.detail.value));
     }
-    searchName(userName) {
+    async searchName(userName) {
         console.log(tag, "UserName : ", userName);
-        this.store.getSearchUser(userName)
-            .then(() => {
-                this.userDetails.getUserProfile(this.store.findUser)
-            });
+        await this.store.getSearchUser(userName);
+
+        console.log(tag, "findUser " + JSON.stringify(this.store.findUser));
     }
     userNameReset() {
         this.userNameSearch.on("@reset", event => this.checkUserName(event));
@@ -30,8 +29,5 @@ export default class Controller {
         if (event.detail.value.length === 0) {
             console.log(tag, "User name erased");
         }
-    }
-    getUserProfile() {
-
     }
 }

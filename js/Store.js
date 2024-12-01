@@ -7,7 +7,7 @@ export default class Store {
 
         this.searchUserName = "";
         this.init();
-        this.findUser = {};
+        this.findUser = Object.assign({});
     }
 
     // 초기화
