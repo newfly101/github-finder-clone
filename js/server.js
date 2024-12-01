@@ -20,6 +20,24 @@ const octokit = new Octokit({
     auth: process.env.GH_TOKEN,  // GitHub Access Token
 });
 
+app.get('/test', async (req, res) => {
+    res.json({message: 'Hello World!'});
+})
+
+app.get('/search-topics', async (req, res) => {
+    try {
+        const response = await octokit.request('GET /search/topics', {
+            headers: {
+                'X-GitHub-Api-Version': '2022-11-28'
+            }
+        });
+        res.json(response.data);
+    } catch (error) {
+        res.status(500).json({ error: 'Error fetching data from GitHub API' });
+    }
+});
+
+
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
