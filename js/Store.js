@@ -8,6 +8,7 @@ export default class Store {
 
         this.searchUserName = "";
         this.init();
+        this.findUser = {};
     }
 
     // 초기화
@@ -29,7 +30,9 @@ export default class Store {
     async getSearchUser(userName) {
         try {
             const data = await fetchSearch(userName);
-            console.log(tag, 'Test response:', data);
+            console.log(tag, 'getSearchUser:', data);
+            this.findUser = data.items.find(user => user.login === userName);
+            console.log(tag,"findUser: ",this.findUser); // object로 담음
         } catch (error) {
             console.error(tag, 'Error in test:', error);
         }
