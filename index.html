@@ -26,21 +26,25 @@
         </section>
         <section class="section2">
             <div class="viewer-userProfile-img-container">
-                <img src="assets/userProfile.svg" alt="userProfileImg"/>
-                <button>View Profile</button>
+                <img src="./assets/userProfile.svg" alt="userProfileImg"/>
+                <button>
+                    <a id="view-to-github" href="#" target="_blank">
+                        View Profile
+                    </a>
+                </button>
             </div>
             <div class="viewer-userProfile-detail-container">
                 <div class="viewer-button-container">
-                    <button>Public Repos: ${53}</button>
-                    <button>Public Gists: ${0}</button>
-                    <button>Followers: ${1174}</button>
-                    <button>Following: ${0}</button>
+                    <button>Public Repos: <span id="user-1">0</span></button>
+                    <button>Public Gists: <span id="user-2">0</span></button>
+                    <button>Followers: <span id="user-3">0</span></button>
+                    <button>Following: <span id="user-4">0</span></button>
                 </div>
                 <div class="viewer-userProfile-container">
-                    <p>Company: <span>${null}</span></p>
-                    <p>Website/Blog: <span>${https://youtube.com/channel/newfly101}</span></p>
-                    <p>Location: <span>${Korea Songpa-gu}</span></p>
-                    <p>Member Since: <span>${2016-07-22T13:53:14}</span></p>
+                    <p>Company: <span id="userFile-1"></span></p>
+                    <p>Website/Blog: <span id="userFile-2"></span></p>
+                    <p>Location: <span id="userFile-3"></span></p>
+                    <p>Member Since: <span id="userFile-4"></span></p>
                 </div>
             </div>
         </section>
