@@ -1,11 +1,12 @@
 const tag = '[CONTROLLER]';
 
 export default class Controller {
-    constructor(store, {userNameSearch}) {
+    constructor(store, {userNameSearch, userDetails}) {
         console.log(tag);
 
         this.store = store;
         this.userNameSearch = userNameSearch;
+        this.userDetails = userDetails;
 
         this.userInputSubmit();
         this.userNameReset();
@@ -16,8 +17,10 @@ export default class Controller {
     }
     searchName(userName) {
         console.log(tag, "UserName : ", userName);
-        this.store.getSearchUser(userName);
-        // this.store.test();
+        this.store.getSearchUser(userName)
+            .then(() => {
+                this.userDetails.getUserProfile(this.store.findUser)
+            });
     }
     userNameReset() {
         this.userNameSearch.on("@reset", event => this.checkUserName(event));
@@ -27,5 +30,8 @@ export default class Controller {
         if (event.detail.value.length === 0) {
             console.log(tag, "User name erased");
         }
+    }
+    getUserProfile() {
+
     }
 }
