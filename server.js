@@ -13,6 +13,9 @@ const corsOption = {
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
 }
+const API_HEADERS = {
+    'X-GitHub-Api-Version': '2022-11-28'
+}
 
 app.use(cors(corsOption));
 
@@ -23,6 +26,7 @@ console.log(process.env.GH_TOKEN);
 
 const octokitTag = '[GitHub API]';
 
+/*
 async function verifyGitHubToken() {
     try {
         // GitHub API의 /user 엔드포인트를 호출하여 토큰 유효성 확인
@@ -38,28 +42,26 @@ async function verifyGitHubToken() {
     }
 }
 verifyGitHubToken();
+*/
 
 app.get('/test', async (req, res) => {
     res.json({message: 'Hello World!'});
 })
 
-// 클라이언트에서 검색 요청을 받을 API 엔드포인트
+// 유저 검색 API REQUEST
 app.get('/search-users', async (req, res) => {
     const query = req.query.userName;  // 기본 쿼리 'javascript'
     try {
         const response = await octokit.request('GET /search/users', {
             q: query,
-            headers: {
-                'X-GitHub-Api-Version': '2022-11-28'
-            }
+            headers: API_HEADERS
         })
-        console.log(`${octokitTag} Response : `, response);
-        res.json(response.data);
+        console.log(`${octokitTag} Response : `, response.data.items);
+        res.json(response.data.items);
     } catch (error) {
         res.status(500).json({ error: 'Error fetching data from GitHub API' });
     }
 });
-
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
