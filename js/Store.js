@@ -3,7 +3,7 @@ import {fetchSearch, fetchSearchDetail, fetchServerTest} from "./repository.js";
 const tag = '[STORE]';
 export default class Store {
     constructor() {
-        console.log(tag);
+        // console.log(tag);
 
 
         this.searchUserName = "";
