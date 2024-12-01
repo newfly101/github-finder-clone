@@ -44,10 +44,6 @@ async function verifyGitHubToken() {
 verifyGitHubToken();
 */
 
-app.get('/test', async (req, res) => {
-    res.json({message: 'Hello World!'});
-})
-
 // 유저 검색 API REQUEST
 app.get('/search-users', async (req, res) => {
     const query = req.query.userName;  // 기본 쿼리 'javascript'
