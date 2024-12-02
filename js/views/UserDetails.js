@@ -45,14 +45,3 @@ export default class userDetails extends View {
         this.userDetail.userFollowingCount.innerHTML = userDetail.following;
     }
 }
-
-// <section class="section2">
-//             <div class="viewer-userProfile-detail-container">
-//                 <div class="viewer-userProfile-container">
-//                     <p>Company: <span id="userFile-1"></span></p>
-//                     <p>Website/Blog: <span id="userFile-2"></span></p>
-//                     <p>Location: <span id="userFile-3"></span></p>
-//                     <p>Member Since: <span id="userFile-4"></span></p>
-//                 </div>
-//             </div>
-//         </section>

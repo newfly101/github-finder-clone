@@ -56,6 +56,7 @@ export default class Store {
 
             const repos = await fetchToUrl(this.findUser.repos_url);
             this.findUser.repos_count = repos.length;
+            this.findUser.repos_list = repos;
 
             const gists = await fetchToUrl(this.findUser.gists_url);
             this.findUser.gists_count = gists.length;
@@ -74,39 +75,4 @@ export default class Store {
             console.log(tag, 'Error in getUserDetails:', error);
         }
     }
-
-
-    // async getSearchUserDetail(userName) {
-    //     console.log("detail request");
-    //     try {
-    //         const data = await fetchSearchDetail(userName);
-    //         console.log(`getSearchUserDetail : ${data.json()}`);
-    //         return data.json();
-    //     } catch (error) {
-    //         console.error(tag, 'Error in getSearchUserDetail:', error);
-    //     }
-    // }
 }
-
-// this.findUser = {
-//     "login": "newfly101",
-//     "id": 62008619,
-//     "node_id": "MDQ6VXNlcjYyMDA4NjE5",
-//     "avatar_url": "https://avatars.githubusercontent.com/u/62008619?v=4",
-//     "gravatar_id": "",
-//     "url": "https://api.github.com/users/newfly101",
-//     "html_url": "https://github.com/newfly101",
-//     "followers_url": "https://api.github.com/users/newfly101/followers",
-//     "following_url": "https://api.github.com/users/newfly101/following{/other_user}",
-//     "gists_url": "https://api.github.com/users/newfly101/gists{/gist_id}",
-//     "starred_url": "https://api.github.com/users/newfly101/starred{/owner}{/repo}",
-//     "subscriptions_url": "https://api.github.com/users/newfly101/subscriptions",
-//     "organizations_url": "https://api.github.com/users/newfly101/orgs",
-//     "repos_url": "https://api.github.com/users/newfly101/repos",
-//     "events_url": "https://api.github.com/users/newfly101/events{/privacy}",
-//     "received_events_url": "https://api.github.com/users/newfly101/received_events",
-//     "type": "User",
-//     "user_view_type": "public",
-//     "site_admin": false,
-//     "score": 1
-// }
