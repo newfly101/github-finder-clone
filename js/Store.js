@@ -9,6 +9,7 @@ export default class Store {
         this.init();
         this.findUser = Object.assign({});
         this.userLoginData = Object.assign({});
+        this.repoList = [];
     }
 
     // 초기화
@@ -33,7 +34,7 @@ export default class Store {
                 const data = await fetchSearch(userName);
                 this.findUser = data.find(user => user.login === userName);
                 this.findUser = this.clearOptionStrings(this.findUser);
-                console.log(tag,"SearchUser => ",this.findUser);
+                // console.log(tag,"SearchUser => ",this.findUser);
                 await this.calcDetailCount();
                 await this.getUserDetails();
             } catch (error) {
@@ -46,7 +47,7 @@ export default class Store {
     }
 
     async calcDetailCount() {
-        console.log(tag, "Calculating each button's Count");
+        // console.log(tag, "Calculating each button's Count");
         try{
             const follower = await fetchToUrl(this.findUser.followers_url);
             this.findUser.followers_count = follower.length;
@@ -56,21 +57,22 @@ export default class Store {
 
             const repos = await fetchToUrl(this.findUser.repos_url);
             this.findUser.repos_count = repos.length;
-            this.findUser.repos_list = repos;
+            this.repoList = repos;
+            console.log("repos_list", this.repoList);
 
             const gists = await fetchToUrl(this.findUser.gists_url);
             this.findUser.gists_count = gists.length;
 
-            console.log(tag, "Calculating Complete Count");
+            // console.log(tag, "Calculating Complete Count");
         } catch (e) {
             console.log(tag, 'Error in SearchUserFollow:', e);
         }
     }
     async getUserDetails() {
-        console.log(tag, "GET:: User Login Detail Information");
+        // console.log(tag, "GET:: User Login Detail Information");
         try {
             this.userLoginData = await fetchToUrl(this.findUser.url);
-            console.log(tag, "Complete:: User Login Detail Information", this.userLoginData);
+            // console.log(tag, "Complete:: User Login Detail Information", this.userLoginData);
         } catch (error) {
             console.log(tag, 'Error in getUserDetails:', error);
         }
