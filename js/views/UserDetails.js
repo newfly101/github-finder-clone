@@ -12,6 +12,10 @@ export default class userDetails extends View {
         this.userDetail = {
             userImg: qs('div > img'),
             userProfileLink: qs('div > button > a'),
+            userRepoCount: qs("#user-1"),
+            userGistsCount: qs("#user-2"),
+            userFollowerCount: qs("#user-3"),
+            userFollowingCount: qs("#user-4"),
         }
         console.log(this.userDetail.userProfileLink);
 
@@ -21,6 +25,11 @@ export default class userDetails extends View {
         console.log(tag, "userData: ", userData);
         this.userDetail.userImg.src = userData.avatar_url;
         this.userDetail.userProfileLink.href = userData.html_url;
+        this.userDetail.userRepoCount.innerHTML = userData.repos_count;
+        this.userDetail.userGistsCount.innerHTML = userData.gists_count;
+        this.userDetail.userFollowerCount.innerHTML = userData.followers_count;
+        this.userDetail.userFollowingCount.innerHTML = userData.following_count;
+
     }
 }
 

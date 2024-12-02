@@ -47,16 +47,16 @@ export default class Store {
         console.log(tag, "Calculating each button's Count");
         try{
             const follower = await fetchToUrl(this.findUser.followers_url);
-            this.findUser.followersCount = follower.length;
+            this.findUser.followers_count = follower.length;
 
             const following = await fetchToUrl(this.findUser.following_url);
-            this.findUser.followingCount = following.length;
+            this.findUser.following_count = following.length;
 
             const repos = await fetchToUrl(this.findUser.repos_url);
-            this.findUser.reposCount = repos.length;
+            this.findUser.repos_count = repos.length;
 
             const gists = await fetchToUrl(this.findUser.gists_url);
-            this.findUser.gistsCount = gists.length;
+            this.findUser.gists_count = gists.length;
 
             console.log(tag, "Calculating Complete Count");
         } catch (e) {
