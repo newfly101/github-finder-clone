@@ -3,7 +3,7 @@
   <img src="./assets/clone-result.gif" alt="result" style="width: 500px; height: 500px;"/>
 </div>
 <div>
-  <h2>💡 사용 언어</h1>
+  <h2>💡 사용 언어</h2>
 <!--   <img src="https://img.shields.io/badge/이름-색상코드?style=flat-square&logo=로고명&logoColor=로고색"/> -->
   <div style="margin-bottom: 20px; display:flex; flex-direction:column;">
     <div style="display: block">
@@ -23,7 +23,7 @@
   </div>
 </div>
 <div>
-  <h2>📌 Installation</h1>
+  <h2>📌 Installation</h2>
   <pre><code>
   npm install -y @octokit/rest cors dotenv express require 
   </code></pre>
