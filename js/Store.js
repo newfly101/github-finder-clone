@@ -8,6 +8,7 @@ export default class Store {
         this.searchUserName = "";
         this.init();
         this.findUser = Object.assign({});
+        this.userLoginData = Object.assign({});
     }
 
     // 초기화
@@ -34,6 +35,7 @@ export default class Store {
                 this.findUser = this.clearOptionStrings(this.findUser);
                 console.log(tag,"SearchUser => ",this.findUser);
                 await this.calcDetailCount();
+                await this.getUserDetails();
             } catch (error) {
                 console.log(tag, 'Error in SearchUser:', error);
             }
@@ -61,6 +63,15 @@ export default class Store {
             console.log(tag, "Calculating Complete Count");
         } catch (e) {
             console.log(tag, 'Error in SearchUserFollow:', e);
+        }
+    }
+    async getUserDetails() {
+        console.log(tag, "GET:: User Login Detail Information");
+        try {
+            this.userLoginData = await fetchToUrl(this.findUser.url);
+            console.log(tag, "Complete:: User Login Detail Information", this.userLoginData);
+        } catch (error) {
+            console.log(tag, 'Error in getUserDetails:', error);
         }
     }
 

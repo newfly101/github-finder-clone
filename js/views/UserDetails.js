@@ -16,39 +16,38 @@ export default class userDetails extends View {
             userGistsCount: qs("#user-2"),
             userFollowerCount: qs("#user-3"),
             userFollowingCount: qs("#user-4"),
+            company: qs("#userFile-1"),
+            website: qs("#userFile-2"),
+            location: qs("#userFile-3"),
+            memberSince: qs("#userFile-4")
         }
         console.log(this.userDetail.userProfileLink);
 
     }
 
-    setUserDetail(userData) {
+    setUserDetail(userData, userDetail) {
         console.log(tag, "userData: ", userData);
         this.userDetail.userImg.src = userData.avatar_url;
         this.userDetail.userProfileLink.href = userData.html_url;
-        this.userDetail.userRepoCount.innerHTML = userData.repos_count;
-        this.userDetail.userGistsCount.innerHTML = userData.gists_count;
-        this.userDetail.userFollowerCount.innerHTML = userData.followers_count;
-        this.userDetail.userFollowingCount.innerHTML = userData.following_count;
-
+        // this.userDetail.userRepoCount.innerHTML = userData.repos_count;
+        // this.userDetail.userGistsCount.innerHTML = userData.gists_count;
+        // this.userDetail.userFollowerCount.innerHTML = userData.followers_count;
+        // this.userDetail.userFollowingCount.innerHTML = userData.following_count;
+        this.userDetail.company.innerHTML = userDetail.company !== null ? userDetail.company : "";
+        this.userDetail.website.innerHTML = userDetail.blog !== null ? userDetail.blog : "";
+        this.userDetail.location.innerHTML = userDetail.location !== null ? userDetail.location : "";
+        this.userDetail.memberSince.innerHTML = userDetail.created_at;
+        
+        // 어 슈발.. ? 
+        this.userDetail.userRepoCount.innerHTML = userDetail.public_repos;
+        this.userDetail.userGistsCount.innerHTML = userDetail.public_gists;
+        this.userDetail.userFollowerCount.innerHTML = userDetail.followers;
+        this.userDetail.userFollowingCount.innerHTML = userDetail.following;
     }
 }
 
 // <section class="section2">
-//             <div class="viewer-userProfile-img-container">
-//                 <img src="./assets/userProfile.svg" alt="userProfileImg"/>
-//                 <button>
-//                     <a id="view-to-github" href="#" target="_blank">
-//                         View Profile
-//                     </a>
-//                 </button>
-//             </div>
 //             <div class="viewer-userProfile-detail-container">
-//                 <div class="viewer-button-container">
-//                     <button>Public Repos: <span id="user-1">0</span></button>
-//                     <button>Public Gists: <span id="user-2">0</span></button>
-//                     <button>Followers: <span id="user-3">0</span></button>
-//                     <button>Following: <span id="user-4">0</span></button>
-//                 </div>
 //                 <div class="viewer-userProfile-container">
 //                     <p>Company: <span id="userFile-1"></span></p>
 //                     <p>Website/Blog: <span id="userFile-2"></span></p>

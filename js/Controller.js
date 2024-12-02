@@ -18,7 +18,7 @@ export default class Controller {
     async searchName(userName) {
         console.log(tag, "UserName : ", userName);
         await this.store.getSearchUser(userName);
-        await this.userDetails.setUserDetail(this.store.findUser); // userImg, url 만 날리는 경우
+        await this.userDetails.setUserDetail(this.store.findUser, this.store.userLoginData); // userImg, url 만 날리는 경우
 
     }
     userNameReset() {
